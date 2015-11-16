@@ -1,30 +1,30 @@
 /* global describe it */
-var Queue = require('../')
+var Connection = require('../')
 
 describe('SQS', function () {
   it('should send and receive messages', function () {
     this.timeout(10000)
-    const queue = new Queue(process.env.SQS_URL, {
-      awsKey: process.env.AWS_KEY,
-      awsSecret: process.env.AWS_SECRET,
-      awsRegion: process.env.AWS_REGION
-    })
+    var c = new Connection('amqp://127.0.0.1:5672', {})
+
     var wait = new Promise(function (resolve) {
       var done = false
-      queue.on('message', function (message, ack) {
-        ack()
+      c.subscribe({
+        queueName: 'analytics',
+        routingKey: 'demo.test',
+        maxConcurrent: 2
+      }, function (message) {
         if (done) return
         done = true
-        if (message.body !== 'Hello World') {
-          throw new Error('Unexpected message: ' + JSON.stringify(message.body))
-        }
-        resolve(queue.close())
+        resolve(c)
       })
-
-      queue.listen(1)
     })
 
-    return queue.push({body: 'Hello World'})
+    var promises = []
+    for (var i = 0; i < 1; i++) {
+      c.publish('demo.test', {index: i, alert: new Date()})
+    }
+
+    return Promise.all(promises)
     .then(function () {
       return wait
     })

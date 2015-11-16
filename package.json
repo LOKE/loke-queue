@@ -24,7 +24,7 @@
     "standard": "^5.3.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.2.17",
+    "amqplib": "^0.4.0",
     "es6-promise": "^3.0.2"
   }
 }
