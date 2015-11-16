@@ -8,9 +8,8 @@ describe('SQS', function () {
 
     var wait = new Promise(function (resolve) {
       var done = false
-      c.subscribe({
+      c.subscribe('demo.test', {
         queueName: 'analytics',
-        routingKey: 'demo.test',
         maxConcurrent: 2
       }, function (message) {
         if (done) return
