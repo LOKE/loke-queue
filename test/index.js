@@ -4,7 +4,7 @@ var Connection = require('../')
 describe('SQS', function () {
   it('should send and receive messages', function () {
     this.timeout(10000)
-    var c = new Connection('amqp://127.0.0.1:5672', {})
+    var c = new Connection('amqp://guest:guest@127.0.0.1:5672/', {})
 
     var wait = new Promise(function (resolve) {
       var done = false
