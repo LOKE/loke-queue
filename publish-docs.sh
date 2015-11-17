@@ -2,6 +2,7 @@
 
 branch=`git branch | grep '\*' | sed 's/\* *//'`
 
+git stash
 npm run generate-docs || exit 1
 git checkout gh-pages || exit 1
 
