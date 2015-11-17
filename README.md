@@ -5,7 +5,7 @@
 
 Simple RabbitMQ wrapper exposing queue functionality.
 
-## [Documentation](https://loke.github.io/loke-queue/doc/loke-queue/1.0.0)
+## [Documentation](https://loke.github.io/loke-queue/doc/loke-queue/1.0.1)
 
 ## Example
 
