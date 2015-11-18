@@ -14,14 +14,17 @@ var Connection = require('loke-queue').Connection
 
 var connection = new Connection('amqp://localhost')
 
-connection.subscribe('demo.*', {
-  queueName: 'jobs',
-  maxConcurrent: 20
-}, function (message) {
+var queue = connection.queue('jobs', {maxConcurrent: 20})
+
+queue.subscribe('demo.*', function (message) {
   console.log(message)
   return new Promise(function (resolve) {
     setTimeout(resolve, 500)
   })
+})
+
+setTimeout(function (){
+  queue.stop()
 })
 
 connection.publish('demo.test', {

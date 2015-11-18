@@ -6,7 +6,7 @@ describe('SQS', function () {
     this.timeout(10000)
     var c = new Connection('amqp://guest:guest@127.0.0.1:5672/', {autoDelete: true, durable: false})
 
-    var queue = c.queue('analytics', {maxConcurrent: 2, durable: true, autoDelete: true})
+    var queue = c.queue('analytics', {maxConcurrent: 2, durable: false, autoDelete: true})
     var hasAcked = false
     var wait = new Promise(function (resolve) {
       var done = false
