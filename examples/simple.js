@@ -20,5 +20,5 @@ setTimeout(function () {
 setTimeout(function () {
   connection.publish('demo.test', {
     message: 'Hello World'
-  });
+  })
 })
