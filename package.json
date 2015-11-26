@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "generate-docs": "jsdoc --configure .jsdoc.json",
+    "lint": "standard",
     "test": "mocha --recursive"
   },
   "repository": {

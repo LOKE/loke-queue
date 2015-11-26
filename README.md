@@ -5,7 +5,7 @@
 
 Simple RabbitMQ wrapper exposing queue functionality.
 
-## [Documentation](https://loke.github.io/loke-queue/doc/loke-queue/1.3.0)
+## [Documentation](https://loke.github.io/loke-queue/doc/loke-queue/1.4.0)
 
 ## Example
 
@@ -14,7 +14,7 @@ var Connection = require('loke-queue').Connection
 
 var connection = new Connection('amqp://localhost')
 
-var queue = connection.queue('jobs', {maxConcurrent: 20})
+var queue = connection.queue('jobs', {maxConcurrent: 20, retryAfterMilliseconds: 10 * 60 * 1000})
 
 queue.subscribe('demo.*', function (message) {
   console.log(message)
