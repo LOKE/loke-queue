@@ -1,11 +1,15 @@
 {
   "name": "loke-queue",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Simple Queue",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "generate-docs": "jsdoc --configure .jsdoc.json",
-    "lint": "standard",
+    "fix": "eslint . --fix",
+    "lint": "eslint .",
     "test": "mocha --recursive"
   },
   "repository": {
@@ -19,13 +23,16 @@
   },
   "homepage": "https://github.com/LOKE/loke-queue#readme",
   "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-mocha": "^5.2.0",
+    "eslint-plugin-prettier": "^2.6.2",
     "jsdoc": "^3.3.3",
     "minami": "^1.1.1",
     "mocha": "^2.3.3",
-    "standard": "^5.3.1"
+    "prettier": "^1.14.2"
   },
   "dependencies": {
-    "amqplib": "^0.4.0",
-    "es6-promise": "^3.0.2"
+    "amqplib": "^0.5.2"
   }
 }
