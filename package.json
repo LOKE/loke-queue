@@ -33,6 +33,7 @@
     "prettier": "^1.14.2"
   },
   "dependencies": {
-    "amqplib": "^0.5.2"
+    "amqplib": "^0.5.2",
+    "ulid": "^2.3.0"
   }
 }
